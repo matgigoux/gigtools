@@ -1,0 +1,14 @@
+Package: gigtools
+Type: Package
+Title: Package containing convenient functions for experimental biologists and amateur bioinformaticians
+Version: 0.1.0
+Author: Mathieu Gigoux
+Maintainer: Mathieu Gigoux <matgigoux at gmail.com>
+Description: I was tired to always re-writing functions because I couldn't find them after many months of not using them and not finding them.
+
+These are typically low level but highly practical for experimental biologist and amateur bioinformaticians.
+
+Please note that these were writen by me and for me. 
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true

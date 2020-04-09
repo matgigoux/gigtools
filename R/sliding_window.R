@@ -1,4 +1,4 @@
-sliding.window <- function(pep.len, prot.sequence){
+sliding_window <- function(pep.len, prot.sequence){
 
   if(length(prot.sequence)>1){ ##Only takes first object from prot.sequence and generates warning
     prot.sequence <- prot.sequence[1]

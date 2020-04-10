@@ -1,7 +1,7 @@
 Package: gigtools
 Type: Package
 Title: Package containing convenient functions for experimental biologists and amateur bioinformaticians
-Version: 0.1.0.1
+Version: 0.1.0.2
 Author: Mathieu Gigoux
 Maintainer: Mathieu Gigoux <matgigoux@gmail.com>
 Description: This package is meant as a repository of my own personal useful functions,

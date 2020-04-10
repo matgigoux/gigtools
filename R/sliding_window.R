@@ -23,11 +23,9 @@ sliding_window <- function(pep.len, prot.sequence){
     while(start.pos <= nchar(prot.sequence)-pep.size+1){
 
       ##Generate peptide
-      peptide <- str_sub(prot.sequence,
-                         start = start.pos,
-                         end = start.pos + pep.size - 1)
-
-
+      peptide <- stringr::str_sub(prot.sequence,
+                                  start = start.pos,
+                                  end = start.pos + pep.size - 1)
 
       all.peptides <- rbind(all.peptides,
                             c(start.pos, start.pos + pep.size - 1, pep.size, peptide))
@@ -45,6 +43,7 @@ sliding_window <- function(pep.len, prot.sequence){
   all.peptides$Start.Pos <- as.numeric(as.character(all.peptides$Start.Pos))
   all.peptides$End.Pos <- as.numeric(as.character(all.peptides$End.Pos))
   all.peptides$Pep.Len <- as.numeric(as.character(all.peptides$Pep.Len))
+  all.peptides$Peptide <- as.character(all.peptides$Peptide)
 
   return(all.peptides)
 

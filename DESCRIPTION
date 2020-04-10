@@ -3,10 +3,10 @@ Type: Package
 Title: Package containing convenient functions for experimental biologists and amateur bioinformaticians
 Version: 0.1.0.1
 Author: Mathieu Gigoux
-Maintainer: Mathieu Gigoux <matgigoux_at_gmail.com>
-Description: This package is meant as a repository of my own personal useful functions, and which
-    generally focus on low level protein/peptide/neoantigen analysis. However there are other
-    functions which on collating wet-lab related data. Feel free to use as you please.
+Maintainer: Mathieu Gigoux <matgigoux@gmail.com>
+Description: This package is meant as a repository of my own personal useful functions,
+    and which generally focus on low level protein/peptide/neoantigen analysis. However there
+    are other functions which on collating wet-lab related data. Feel free to use as you please.
 License: TBD
 Encoding: UTF-8
 LazyData: true

@@ -1,4 +1,13 @@
-sliding_window <- function(pep.len, prot.sequence){
+#' Outputs all peptides consituting longer protein sequence
+#'
+#' This function generates a list of peptides of desired lengths that compose a longer protein in table format, along with position and length infomration.
+#' @param pep.len Peptide length default to 9
+#' @export
+#' @examples
+#' prot.sequence = "ETFNTPAMYVAIQAVLSLYASGRTTGIVMDSGDG"
+#' sliding_window(prot.sequence, 8:12)
+
+sliding_window <- function(prot.sequence, pep.len=9){
 
   if(length(prot.sequence)>1){ ##Only takes first object from prot.sequence and generates warning
     prot.sequence <- prot.sequence[1]
@@ -12,7 +21,6 @@ sliding_window <- function(pep.len, prot.sequence){
   if(any(!(pep.len%%1==0))){ ##Creates an error if pep.len is not integer
     stop("pep.len is not integer")
   }
-
 
   all.peptides <- NULL
 

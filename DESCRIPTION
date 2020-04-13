@@ -1,7 +1,7 @@
 Package: gigtools
 Type: Package
 Title: Package containing convenient functions for experimental biologists and amateur bioinformaticians
-Version: 0.1.0.2
+Version: 0.1.0.3
 Author: Mathieu Gigoux
 Maintainer: Mathieu Gigoux <matgigoux@gmail.com>
 Description: This package is meant as a repository of my own personal useful functions,
@@ -11,5 +11,5 @@ License: TBD
 Encoding: UTF-8
 LazyData: true
 Imports:
-    stringr (>= 1.4.0)
+    stringr (>= 1.4.0), seqinr
 RoxygenNote: 7.1.0

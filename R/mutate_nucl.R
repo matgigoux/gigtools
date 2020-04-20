@@ -9,6 +9,8 @@
 #'
 #' mutate_nucl(sequence, "c.625_629del")
 #'
+#' mutate_nucl(sequence, "c.814delG")
+#'
 #' mutate_nucl(sequence, "c.1042_1043insAAGGCCT")
 #'
 #' mutate_nucl(sequence, "c.320_324dup")
@@ -90,8 +92,11 @@ mutate_nucl <- function(sequence, mutation){
 
     del.position <- stringr::str_sub(mutation, start = 3, end = stringr::str_locate(mutation, "del")[1] - 1)  ##isolate the deletion location information
     del.position <- as.numeric(unlist(stringr::str_split(del.position, "_"))[1])  ##Isolate the beginning of the event. The end position is redundant given the length of the deletion
+
     del.stop <- stringr::str_sub(mutation, start = 3, end = stringr::str_locate(mutation, "del")[1] - 1)  #Isolate the length of the event
     del.stop <- as.numeric(unlist(stringr::str_split(del.stop, "_"))[2])
+
+    if(is.na(del.stop)){del.stop <- del.position}
 
     ##Create new nucleotide sequence
     new.sequence <- paste(stringr::str_sub(sequence, start = 1, end = del.position - 1),

@@ -14,6 +14,8 @@
 #' mutate_nucl(sequence, "c.1042_1043insAAGGCCT")
 #'
 #' mutate_nucl(sequence, "c.320_324dup")
+#'
+#' mutate_nucl(sequence, "c.351dup")
 
 mutate_nucl <- function(sequence, mutation){
 
@@ -140,12 +142,19 @@ mutate_nucl <- function(sequence, mutation){
     dup.start <- as.numeric(stringr::str_sub(mutation, start = 3, end = stringr::str_locate(mutation, "_")[1] - 1)) ##isolate the deletion location information
     dup.end <- as.numeric(stringr::str_sub(mutation, start = stringr::str_locate(mutation, "_")[2] + 1, end = stringr::str_locate(mutation, "dup")[1] - 1))
 
+    ##If only one nucleotide duplication
+    if(is.na(dup.start)){
+      dup.start <- as.numeric(stringr::str_sub(mutation, start = 3, end = stringr::str_locate(mutation, "dup")[1] - 1)) ##isolate the deletion location information
+      dup.end <- dup.start
+    }
+
     duplication <- stringr::str_sub(sequence, start = dup.start, end = dup.end) ##Isolate the insertion event
 
 
-    new.sequence <- c(seqinr::s2c(sequence)[1 : dup.start - 1], ##Insert the insertion at the deletion location
-                      unlist(stringr::str_split(duplication, "")),
-                      seqinr::s2c(sequence)[(dup.start) : length(seqinr::s2c(sequence))])
+    new.sequence <- paste(stringr::str_sub(sequence, end = dup.start),
+                          duplication,
+                          stringr::str_sub(sequence, start = dup.start + 1),
+                          sep = "")
 
     ##Create new protein sequence
     new.protein <- seqinr::translate(new.sequence)

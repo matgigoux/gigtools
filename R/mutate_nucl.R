@@ -63,7 +63,7 @@ mutate_nucl <- function(sequence, mutation, protein.return=F){
                           sub.bp,
                           stringr::str_sub(sequence, start = pos.bp + 1), sep = "")
 
-    if(protein.return=T){
+    if(protein.return==T){
       ##Create new protein sequence
       new.protein <- seqinr::translate(seqinr::s2c(new.sequence))
       new.protein <- stringr::str_sub(paste(new.protein, collapse = ""), start = 1, end = which(new.protein=="*")[1] - 1)
@@ -88,7 +88,7 @@ mutate_nucl <- function(sequence, mutation, protein.return=F){
                           stringr::str_sub(sequence, start = ins.position + 1),
                           sep = "")
 
-    if(protein.return=T){
+    if(protein.return==T){
       ##Create new protein sequence
       new.protein <- seqinr::translate(seqinr::s2c(new.sequence))
       new.protein <- stringr::str_sub(paste(new.protein, collapse = ""), start = 1, end = which(new.protein=="*")[1] - 1)
@@ -114,7 +114,7 @@ mutate_nucl <- function(sequence, mutation, protein.return=F){
                           stringr::str_sub(sequence, start = del.stop + 1, end = nchar(sequence)),
                           sep = "")
 
-    if(protein.return=T){
+    if(protein.return==T){
       ##Create new protein sequence
       new.protein <- seqinr::translate(seqinr::s2c(new.sequence))
       new.protein <- stringr::str_sub(paste(new.protein, collapse = ""), start = 1, end = which(new.protein=="*")[1] - 1)
@@ -141,7 +141,7 @@ mutate_nucl <- function(sequence, mutation, protein.return=F){
                           stringr::str_sub(sequence, start = del.stop + 1, end = nchar(sequence)),
                           sep = "")
 
-    if(protein.return=T){
+    if(protein.return==T){
       ##Create new protein sequence
       new.protein <- seqinr::translate(seqinr::s2c(new.sequence))
       new.protein <- stringr::str_sub(paste(new.protein, collapse = ""), start = 1, end = which(new.protein=="*")[1] - 1)
@@ -171,7 +171,7 @@ mutate_nucl <- function(sequence, mutation, protein.return=F){
                           stringr::str_sub(sequence, start = dup.start),
                           sep = "")
 
-    if(protein.return=T){
+    if(protein.return==T){
       ##Create new protein sequence
       new.protein <- seqinr::translate(seqinr::s2c(new.sequence))
       new.protein <- stringr::str_sub(paste(new.protein, collapse = ""), start = 1, end = which(new.protein=="*")[1] - 1)

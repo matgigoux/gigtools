@@ -4,7 +4,10 @@
 \alias{mutate_nucl}
 \title{Mutates a nucleotide seuqnce}
 \usage{
-mutate_nucl(sequence, mutation)
+mutate_nucl(sequence, mutation, protein.return = F)
+}
+\arguments{
+\item{protein.return}{Default status is to return the nucleotide sequence. Otherwise, return protein sequence.}
 }
 \description{
 This function mutates a nucleotide sequence based on a specific input, whether it be substitution, duplication, deletion and/or insertion. Splice variants are not tolerated.
@@ -16,7 +19,11 @@ mutate_nucl(sequence, "c.487T>A")
 
 mutate_nucl(sequence, "c.625_629del")
 
+mutate_nucl(sequence, "c.814delG")
+
 mutate_nucl(sequence, "c.1042_1043insAAGGCCT")
 
 mutate_nucl(sequence, "c.320_324dup")
+
+mutate_nucl(sequence, "c.351dup")
 }

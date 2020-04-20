@@ -1,6 +1,7 @@
 #' Mutates a nucleotide seuqnce
 #'
 #' This function mutates a nucleotide sequence based on a specific input, whether it be substitution, duplication, deletion and/or insertion. Splice variants are not tolerated.
+#' @param protein.return Default status is to return the nucleotide sequence. Otherwise, return protein sequence.
 #' @export
 #' @examples
 #' mutate_nucl(sequence, "c.497_499delinsAA")
@@ -17,7 +18,7 @@
 #'
 #' mutate_nucl(sequence, "c.351dup")
 
-mutate_nucl <- function(sequence, mutation){
+mutate_nucl <- function(sequence, mutation, protein.return=F){
 
   ##There should only be 1 sequence to mutate. If multiple sequences are added, only take the first and send a warning
   if(length(sequence) > 1){
@@ -62,11 +63,16 @@ mutate_nucl <- function(sequence, mutation){
                           sub.bp,
                           stringr::str_sub(sequence, start = pos.bp + 1), sep = "")
 
-    ##Create new protein sequence
-    new.protein <- seqinr::translate(seqinr::s2c(new.sequence))
-    new.protein <- stringr::str_sub(paste(new.protein, collapse = ""), start = 1, end = which(new.protein=="*")[1] - 1)
+    if(protein.return=T){
+      ##Create new protein sequence
+      new.protein <- seqinr::translate(seqinr::s2c(new.sequence))
+      new.protein <- stringr::str_sub(paste(new.protein, collapse = ""), start = 1, end = which(new.protein=="*")[1] - 1)
+      return(new.protein)
+    } else {
+      return(new.sequence)
+    }
 
-    return(new.protein)
+
 
 
   ##check if only an insertion has occured and apply that insertion
@@ -82,11 +88,14 @@ mutate_nucl <- function(sequence, mutation){
                           stringr::str_sub(sequence, start = ins.position + 1),
                           sep = "")
 
-    ##Create new protein sequence
-    new.protein <- seqinr::translate(seqinr::s2c(new.sequence))
-    new.protein <- stringr::str_sub(paste(new.protein, collapse = ""), start = 1, end = which(new.protein=="*")[1] - 1)
-
-    return(new.protein)
+    if(protein.return=T){
+      ##Create new protein sequence
+      new.protein <- seqinr::translate(seqinr::s2c(new.sequence))
+      new.protein <- stringr::str_sub(paste(new.protein, collapse = ""), start = 1, end = which(new.protein=="*")[1] - 1)
+      return(new.protein)
+    } else {
+      return(new.sequence)
+    }
 
 
   ##check if only a del has occured and apply that del
@@ -105,11 +114,14 @@ mutate_nucl <- function(sequence, mutation){
                           stringr::str_sub(sequence, start = del.stop + 1, end = nchar(sequence)),
                           sep = "")
 
-    ##Create new protein sequence
-    new.protein <- seqinr::translate(seqinr::s2c(new.sequence))
-    new.protein <- stringr::str_sub(paste(new.protein, collapse = ""), start = 1, end = which(new.protein=="*")[1] - 1)
-
-    return(new.protein)
+    if(protein.return=T){
+      ##Create new protein sequence
+      new.protein <- seqinr::translate(seqinr::s2c(new.sequence))
+      new.protein <- stringr::str_sub(paste(new.protein, collapse = ""), start = 1, end = which(new.protein=="*")[1] - 1)
+      return(new.protein)
+    } else {
+      return(new.sequence)
+    }
 
 
     ##check if a del and an ins has occured and apply that del
@@ -129,11 +141,14 @@ mutate_nucl <- function(sequence, mutation){
                           stringr::str_sub(sequence, start = del.stop + 1, end = nchar(sequence)),
                           sep = "")
 
-    ##Create new protein sequence
-    new.protein <- seqinr::translate(seqinr::s2c(new.sequence))
-    new.protein <- stringr::str_sub(paste(new.protein, collapse = ""), start = 1, end = which(new.protein=="*")[1] - 1)
-
-    return(new.protein)
+    if(protein.return=T){
+      ##Create new protein sequence
+      new.protein <- seqinr::translate(seqinr::s2c(new.sequence))
+      new.protein <- stringr::str_sub(paste(new.protein, collapse = ""), start = 1, end = which(new.protein=="*")[1] - 1)
+      return(new.protein)
+    } else {
+      return(new.sequence)
+    }
 
 
     ##Check if a duplication has occured
@@ -156,11 +171,14 @@ mutate_nucl <- function(sequence, mutation){
                           stringr::str_sub(sequence, start = dup.start),
                           sep = "")
 
-    ##Create new protein sequence
-    new.protein <- seqinr::translate(seqinr::s2c(new.sequence))
-    new.protein <- stringr::str_sub(paste(new.protein, collapse = ""), start = 1, end = which(new.protein=="*")[1] - 1)
-
-    return(new.protein)
+    if(protein.return=T){
+      ##Create new protein sequence
+      new.protein <- seqinr::translate(seqinr::s2c(new.sequence))
+      new.protein <- stringr::str_sub(paste(new.protein, collapse = ""), start = 1, end = which(new.protein=="*")[1] - 1)
+      return(new.protein)
+    } else {
+      return(new.sequence)
+    }
 
 
   }

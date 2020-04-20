@@ -151,9 +151,9 @@ mutate_nucl <- function(sequence, mutation){
     duplication <- stringr::str_sub(sequence, start = dup.start, end = dup.end) ##Isolate the insertion event
 
     ##Create new nucleotide sequence
-    new.sequence <- paste(stringr::str_sub(sequence, end = dup.start),
+    new.sequence <- paste(stringr::str_sub(sequence, end = dup.start - 1),
                           duplication,
-                          stringr::str_sub(sequence, start = dup.start + 1),
+                          stringr::str_sub(sequence, start = dup.start),
                           sep = "")
 
     ##Create new protein sequence

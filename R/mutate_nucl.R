@@ -1,4 +1,4 @@
-#' Mutates a nucleotide seuqnce
+#' Mutates a nucleotide sequence
 #'
 #' This function mutates a nucleotide sequence based on a specific input, whether it be substitution, duplication, deletion and/or insertion. Splice variants are not tolerated.
 #' @param protein.return Default status is to return the nucleotide sequence. Otherwise, return protein sequence.

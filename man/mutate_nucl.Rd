@@ -2,7 +2,7 @@
 % Please edit documentation in R/mutate_nucl.R
 \name{mutate_nucl}
 \alias{mutate_nucl}
-\title{Mutates a nucleotide seuqnce}
+\title{Mutates a nucleotide sequence}
 \usage{
 mutate_nucl(sequence, mutation, protein.return = F)
 }
